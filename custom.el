@@ -1,6 +1,8 @@
 ;; Customs
 ;; window numbering
-(use-package window-numbering)
+(use-package window-numbering
+  :ensure t
+)
 (window-numbering-mode)
 
 ;; line numbers
@@ -9,6 +11,7 @@
 
 ;; column marker
 (use-package column-marker
+  :ensure t
   :bind ([?\C-c ?m] . column-marker-1)
   :config
   (add-hook 'text-mode-hook (lambda () (interactive) (column-marker-2 80)))
@@ -17,11 +20,13 @@
 ;; undo tree
 (use-package undo-tree
   :commands undo-tree-mode
+  :ensure t
 )
 
 ;; recent files
 (use-package recentf
   :defer t
+  :ensure t
   :bind ("s-r" . recentf-open-files)
   :config
   (recentf-mode 1)
@@ -149,6 +154,7 @@
 ;; Crux
 (use-package crux
   :defer t
+  :ensure t
 )
 ;; (use-package crux
 ;;              :bind (("C-a" . crux-move-beginning-of-line)))

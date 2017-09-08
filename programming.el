@@ -1,8 +1,10 @@
 (use-package autopair
   :defer t
+  :ensure t
 )
 
 (use-package auto-complete
+  :ensure t
   :config
   (global-auto-complete-mode t)
   (setq
@@ -37,6 +39,9 @@
 
 ;; YAML mode
 (use-package yaml-mode
+  :mode "\\.yaml\\'"
+  :interpreter "yaml"
+  :ensure t
   :config
   (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
   (add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))
@@ -55,7 +60,9 @@
 
 ;; python-mode
 (use-package python-mode
-  :defer t
+  :mode "\\.py\\'"
+  :interpreter "python"
+  :ensure t
   :config
   (autoload 'python-mode "python-mode.el" "Python mode." t)
 )

@@ -3,7 +3,8 @@
 
 (use-package magit
   :bind ("\C-xg" . magit-status)
-  )
+  :ensure t
+)
 
 ;; (use-package ghub)
 
@@ -47,13 +48,15 @@
 
 
 ;; ESS
-(setq load-path (cons "/usr/share/emacs/site-lisp/ess" load-path))
-(use-package ess-site)
+(use-package ess-site
+  :load-path "/usr/share/emacs/site-lisp/ess"
+  :commands R
+)
 
 
 ;; web-mode
-(add-to-list 'load-path "/usr/share/emacs/site-lisp/web-mode")
 (use-package web-mode
+  :load-path "/usr/share/emacs/site-lisp/web-mode"
   :defer t
   :config
   (add-to-list 'auto-mode-alist '("\.html\'" . web-mode))
@@ -77,9 +80,8 @@
 ;; (httpd-start)
 
 
-(add-to-list 'load-path "~/.emacs.d/site-lisp/imp")
 (use-package imp
-  :defer t
+  :load-path "~/.emacs.d/site-lisp/imp"
 )
 
 ;; ;; VimishFold
@@ -109,11 +111,6 @@
 )
 
 
-;; Eshell
-(use-package eshell
-  :commands eshell
-)
-
 ;; Multi-Term
 (use-package multi-term
   :commands multi-term
@@ -126,6 +123,10 @@
   ;; (setq term-bind-key-alist (delete "C-r" term-bind-key-alist))
 )
 
+;; Eshell
+(use-package eshell
+  :commands eshell
+)
 
 (with-eval-after-load "esh-opt"
   (autoload 'epe-theme-lambda "eshell-prompt-extras")
@@ -142,7 +143,6 @@
   )
 
 (eshell-git-prompt-use-theme 'powerline)
-
 ;; (add-to-list 'eshell-visual-commands "mutt")
 ;; (add-to-list 'eshell-visual-commands "links")
 ;; (add-to-list 'eshell-visual-commands "htop")

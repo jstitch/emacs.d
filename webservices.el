@@ -93,6 +93,7 @@
 ;; twittering-mode
 (use-package twittering-mode
   :commands twittering-mode
+  :ensure t
   :config
   (setq twittering-use-master-password t)
 )

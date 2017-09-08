@@ -14,6 +14,7 @@
 ;; ;; Minimap
 (use-package minimap
   :defer t
+  :ensure t
   ;; toggle minimap
   :bind ("s-m" . minimap-toggle)
 )
@@ -21,6 +22,7 @@
 ;; smex
 (use-package smex
   :defer t
+  :ensure t
   :bind (("M-x" . smex)
          ("M-X" . smex-major-mode-commands)
          ;; This is your old M-x.
@@ -32,6 +34,7 @@
 ;; Tramp (remote load files)
 (use-package tramp
   :defer t
+  :ensure t
   :config
   (setq tramp-default-method "ssh")
   (setq tramp-default-user "jstitch")

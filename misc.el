@@ -8,8 +8,8 @@
 ;;             (global-nl-line-mode)))
 
 ;; Aurel
-(add-to-list 'load-path "/usr/share/emacs/site-lisp/aurel")
 (use-package aurel
+  :load-path "/usr/share/emacs/site-lisp/aurel"
   :config
   ;; autoloads for the interactive functions
   (autoload 'aurel-package-info "aurel" nil t)
@@ -37,7 +37,10 @@
 ;; (use-package xkcd)
 
 ;; Chess ICS
-(use-package chess)
+(use-package chess
+  :commands (chess chess-ics)
+  :ensure t
+)
 (defun playchess ()
   "Play chess on FICS!"
   (interactive)

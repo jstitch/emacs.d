@@ -1,5 +1,7 @@
 ;; Org mode
 (use-package org
+  :ensure t
+  :interpreter "org"
   :config
   (define-key global-map "\C-cl" 'org-store-link)
   (define-key global-map "\C-ca" 'org-agenda)
@@ -17,7 +19,9 @@
 (load-user-file "scrum.el")
 
 ;; Calfw Calendar
-(use-package calfw-org)
+(use-package calfw-org
+  :ensure t
+)
 
 ;; Gnus usenet newsreader / mail client
 (setq gnus-select-method '(nntp "freenews.netfront.net"))
@@ -37,8 +41,8 @@
 ;; (add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
 
 ;; mu4e
-(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 (use-package mu4e
+  :load-path "/usr/local/share/emacs/site-lisp/mu4e"
   :commands mu4e
   :config
   (setq

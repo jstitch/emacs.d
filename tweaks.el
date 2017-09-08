@@ -1,6 +1,7 @@
 ;; Multiple cursors
-(add-to-list 'load-path "/usr/share/emacs/site-lisp/multiple-cursors")
 (use-package multiple-cursors
+  :load-path "/usr/share/emacs/site-lisp/multiple-cursors"
+  :ensure t
   :config
   ;;(global-unset-key (kbd "C-<down-mouse-1>"))
   ;;(global-set-key (kbd "C-<mouse-1>") 'mc/add-cursor-on-click)
