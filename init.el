@@ -6,6 +6,10 @@
 (setq custom-file "~/.gnu-emacs-custom")
 (load "~/.gnu-emacs-custom" t t)
 
+(require 'no-littering)
+(setq auto-save-file-name-transforms
+      `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
+
 (setq load-path (cons "~/.emacs.d/site-lisp" load-path))
 (setq load-path (cons "/usr/share/emacs/site-lisp/emacs-goodies-el" load-path))
 (add-to-list 'load-path "~/.emacs.d/site-lisp")

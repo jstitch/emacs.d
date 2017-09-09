@@ -7,34 +7,40 @@
 ;;             (set-variable show-trailing-whitespace nil)
 ;;             (global-nl-line-mode)))
 
-;; Aurel
-(use-package aurel
-  :load-path "/usr/share/emacs/site-lisp/aurel"
-  :config
-  ;; autoloads for the interactive functions
-  (autoload 'aurel-package-info "aurel" nil t)
-  (autoload 'aurel-package-search "aurel" nil t)
-  (autoload 'aurel-maintainer-search "aurel" nil t)
-  ;; directory where the packages will be downloaded
-  (setq aurel-download-directory "~/abs")
+;; XKCD
+(use-package emacs-xkcd
+ :commands (xkcd-get xkcd-get-latest)
+  :ensure t
 )
 
-;; Coffee Mode
-;; (use-package coffee
-;;   :defer t
-;; )
+;; 2048
+(use-package 2048-game
+  :commands 2048-game
+  :ensure t
+)
 
-;; Arduino Fun!!!
-(add-to-list 'load-path "~/.emacs.d/site-lisp/arduino-mode")
-(setq auto-mode-alist (cons '("\\.\\(pde\\|ino\\)$" . arduino-mode) auto-mode-alist))
-(autoload 'arduino-mode "arduino-mode" "Arduino editing mode." t)
+;; emstar
+(use-package emstar
+  :commands emstar
+  :ensure t
+  )
 
-;; Wesnoth Mode
-(add-to-list 'load-path "~/.emacs.d/site-lisp/wesnoth-mode")
-(autoload 'wesnoth-mode "wesnoth-mode" "Major mode for editing WML." t)
+;; minesweeper
+(use-package minesweeper
+  :commands minesweeper
+  :ensure t
+)
 
-;; XKCD
-;; (use-package xkcd)
+;; roguel-ike
+(use-package roguel-ike
+  :commands roguel-ike
+  :ensure t
+)
+
+(use-package xbm-life
+  :commands xbm-life
+  :ensure t
+)
 
 ;; Chess ICS
 (use-package chess

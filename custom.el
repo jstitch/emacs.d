@@ -2,8 +2,9 @@
 ;; window numbering
 (use-package window-numbering
   :ensure t
+  :config
+  (window-numbering-mode)
 )
-(window-numbering-mode)
 
 ;; line numbers
 (global-linum-mode)
@@ -20,6 +21,7 @@
 ;; undo tree
 (use-package undo-tree
   :commands undo-tree-mode
+  :defer t
   :ensure t
 )
 
@@ -31,6 +33,8 @@
   :config
   (recentf-mode 1)
   (setq recentf-max-menu-items 25)
+  (add-to-list 'recentf-exclude no-littering-var-directory)
+  (add-to-list 'recentf-exclude no-littering-etc-directory)
 )
 
 ;; create parent subdirectories before saving
@@ -58,7 +62,17 @@
 ;;   (persistent-scratch-setup-default))
 
 ;; interactively do things mode
-(ido-mode t)
+(use-package ido-completing-read+
+  :ensure t
+  :config
+  (ido-mode t)
+  (ido-everywhere t)
+  (ido-ubiquitous-mode t)
+)
+
+(use-package idomenu
+  :ensure t
+)
 
 (use-package info-look)
 
@@ -141,7 +155,17 @@
 (global-set-key (kbd "s-u") 'uncomment-region)
 
 ;; find file in repo
-(global-set-key (kbd "C-x f") 'find-file-in-repository)
+(use-package find-file-in-repository
+  :commands find-file-in-repository
+  :bind ("C-x f" . find-file-in-repository)
+  :ensure t
+)
+
+;; idle-highlight-mode
+(use-package idle-highlight-mode
+  :ensure t
+  :commands idle-highlight-mode
+)
 
 ;; today's date
 ;; from http://emacswiki.org/emacs/InsertingTodaysDate
@@ -151,10 +175,18 @@
               (format-time-string "%d-%m-%Y")
             (format-time-string "%Y-%m-%d"))))
 
-;; Crux
-(use-package crux
+;; Color-Theme
+(use-package color-theme
   :defer t
+)
+;; Github-theme
+(use-package github-theme
+  :defer t
+)
+
+;; CSV-mode
+(use-package csv-mode
+  :mode "\\.csv\\'"
+  :interpreter "csv"
   :ensure t
 )
-;; (use-package crux
-;;              :bind (("C-a" . crux-move-beginning-of-line)))

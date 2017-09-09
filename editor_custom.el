@@ -5,10 +5,31 @@
 (windmove-default-keybindings 'shift)
 (show-paren-mode t)
 
+(use-package exec-path-from-shell
+  :defer t
+  :ensure t
+)
+
 (use-package server
   :config
   (or (server-running-p)
       (server-start))
+)
+
+;; bind-key
+(use-package bind-key
+  :defer t
+)
+
+;; fold-dwim
+(use-package fold-dwim
+;  :defer t
+  :ensure t
+)
+
+(use-package fuzzy
+;  :defer t
+  :ensure t
 )
 
 ;; ;; Minimap
@@ -41,18 +62,52 @@
   (set-default 'tramp-default-proxies-alist (quote ((".*" "\\`root\\'" "/ssh:%h:"))))
 )
 
-;; (load "fireplace.el")
+;; Crux
+(use-package crux
+  :ensure t
+)
+
+;; Dired-rainbow
+(use-package dired-rainbow
+  :defer t
+  :ensure t
+)
+
+;; golden-ratio
+(use-package golden-ratio
+  :commands golden-ratio
+  :ensure t
+)
+
+;; smart-operator mode
+(use-package smart-operator
+  :defer t ;; defering while not knowing how to use this mode
+  :ensure t
+)
+
+;; tablist
+(use-package tablist
+  :defer t
+  :ensure t
+)
+
+
+;; (load "~/.emacs.d/site-lisp/fireplace.el")
+
 
 (load-user-file "emacs-derivatives.el")
 (load-user-file "personal.el")
 (load-user-file "dev.el")
+(load-user-file "sysadmin.el")
 (load-user-file "programming.el")
 (load-user-file "python.el")
 (load-user-file "tweaks.el")
 (load-user-file "webservices.el")
 (load-user-file "office.el")
+(load-user-file "media.el")
 (load-user-file "misc.el")
+(load-user-file "unused.el")
+
 
 (message "Hello, world!")
-
 (about-emacs)

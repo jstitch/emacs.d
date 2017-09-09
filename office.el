@@ -13,12 +13,33 @@
   ;; Org mode
   (setq org-agenda-files (list "~/org/personal.org"
                                "~/documents/podemos/plan_trabajo/org"))
+  )
+(use-package org-bullets
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 )
+(use-package org-tree-slide
+  :ensure t
+)
+(use-package org-trello
+  :defer t
+  :ensure t
+)
+;; Babel Org-Mode
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t) (sh . t)))
+
 
 ;; SCRUM
 (load-user-file "scrum.el")
 
 ;; Calfw Calendar
+(use-package calfw
+  :ensure t
+  :defer t
+)
 (use-package calfw-org
   :ensure t
 )
@@ -100,26 +121,28 @@ http://invernalia.homelinux.net/jstitch
     ;; turn off line wrapping
     (visual-line-mode -1)))
 
-;; PDF-Tools
-(pdf-tools-install)
 
-;; EMMS
-(use-package emms-setup
-  :commands (emms emms-setup emms-volume)
+;; PDF-Tools
+(use-package pdf-tools
+  :ensure t
   :config
-  (emms-all)
-  (emms-default-players)
-  (setq emms-source-file-default-directory "~/Musica/")
+  (pdf-tools-install)
 )
-(use-package emms-volume
-  :bind (("C-c +" . emms-volume-mode-plus)
-         ("C-c -" . emms-volume-mode-minus))
+
+;; nov-el
+(use-package nov
+  :mode ("\\.epub\\'" . nov-mode)
+  :ensure t
 )
-;; (use-package emms-player-mpd
-;;   :config
-;;   (setq emms-player-mpd-server-name "localhost")
-;;   (setq emms-player-mpd-server-port "6600")
-;;   (add-to-list 'emms-info-functions 'emms-info-mpd)
-;;   (add-to-list 'emms-player-list 'emms-player-mpd)
-;;   (setq emms-volume-change-function 'emms-volume-mpd-change)
-;; )
+
+
+;; demo-it
+(use-package demo-it
+  :ensure t
+)
+(use-package expand-region
+  :ensure t
+)
+(use-package fancy-narrow
+  :ensure t
+)

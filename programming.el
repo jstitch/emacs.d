@@ -1,19 +1,17 @@
-(use-package autopair
+;; web-mode
+(use-package web-mode
+  :load-path "/usr/share/emacs/site-lisp/web-mode"
   :defer t
-  :ensure t
-)
-
-(use-package auto-complete
-  :ensure t
   :config
-  (global-auto-complete-mode t)
-  (setq
-   ac-auto-start 2
-   ac-override-local-map nil
-   ac-use-menu-map t
-   ac-candidate-limit 20)
+  (add-to-list 'auto-mode-alist '("\.html\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\.phtml\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\.tpl\.php\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\.jsp\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\.as[cp]x\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\.erb\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\.mustache\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\.djhtml\'" . web-mode))
 )
-
 
 ;; PHP mode
 (autoload 'php-mode "php-mode" "PHP editing mode" t)
@@ -49,7 +47,25 @@
 
 
 ;; Jinja2 mode
-(use-package jinja2-mode)
+(use-package jinja2-mode
+  :commands jinja2-mode
+  :ensure t
+)
+
+
+;; javarun mode
+(use-package javarun
+  :interpreter "java"
+  :ensure t
+)
+
+
+;; json-reformat
+(use-package json-reformat
+  :defer t
+  :commands json-reformat-region
+  :ensure t
+)
 
 
 ;; Go lang mode
@@ -68,11 +84,6 @@
 )
 
 
-;; sql
-(eval-after-load "sql"
-  '(load-library "sql-indent"))
-
-
 ;; sql completion
 (use-package sql-completion
   :defer t
@@ -81,11 +92,6 @@
         (lambda ()
           (define-key sql-interactive-mode-map "\t" 'completion-at-point)
           (sql-mysql-completion-init)))
-)
-
-;; Moz-controller mode
-(use-package moz-controller
-  :defer t
 )
 
 
@@ -101,7 +107,8 @@
 
 ;; Clojure
 (use-package clojure-mode
-  :defer t
+  :mode "\\.clj\\'"
+  :ensure t
   :config
   ;; Enable paredit for Clojure
   (add-hook 'clojure-mode-hook 'enable-paredit-mode)
@@ -111,13 +118,62 @@
 )
 
 
-;; Cider
-(use-package cider-mode
-  :defer t
+;; racket mode
+(use-package racket-mode
+  :mode "\\.rkt\\'"
+  :interpreter "racket"
+  :ensure t
 )
 
 
-;; Babel Org-Mode
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((python . t) (sh . t)))
+;; Cider
+(use-package cider
+  :commands cider-mode
+  :ensure t
+  :defer t
+  )
+
+
+;; Coffee-mode
+(use-package coffee-mode
+  :commands coffee-mode
+  :ensure t
+  )
+
+
+;; Docker
+(use-package docker
+  :defer t
+  :ensure t
+)
+(use-package dockerfile-mode
+  :commands docker-mode
+  :ensure t
+)
+
+
+;; Dokuwiki mode
+(use-package dokuwiki-mode
+  :defer t
+  :ensure t
+)
+
+
+;; restclient mode
+(use-package restclient-mode
+  :commands restclient-mode
+)
+
+
+;; sql
+(eval-after-load "sql"
+  '(load-library "sql-indent"))
+
+
+;; tagedit
+(use-package tagedit
+  :ensure t
+  :config
+  (tagedit-add-paredit-like-keybindings)
+  (add-hook 'html-mode-hook (lambda () (tagedit-mode 1)))
+)

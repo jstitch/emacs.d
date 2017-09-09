@@ -1,3 +1,12 @@
+(use-package virtualenv
+  :defer t
+  :ensure t
+)
+(use-package virtualenvwrapper
+  :defer t
+  :ensure t
+)
+
 (add-hook 'Info-mode-hook		; After Info-mode has started
           (lambda ()
             (setq Info-additional-directory-list Info-default-directory-list)
@@ -99,3 +108,7 @@
 ;;    python-shell-completion-string-code
 ;;    "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
 ;; )
+
+(use-package nose
+  :defer t
+)

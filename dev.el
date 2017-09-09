@@ -1,5 +1,45 @@
+;; OrigamiMode
+(use-package autopair
+  :ensure t
+  :config
+  (autopair-global-mode)
+)
+
+(use-package paredit
+  :commands paredit-mode
+  :defer t
+  :ensure t
+)
+
+(use-package auto-complete
+  :ensure t
+  :config
+  (global-auto-complete-mode t)
+  (setq
+   ac-auto-start 2
+   ac-override-local-map nil
+   ac-use-menu-map t
+   ac-candidate-limit 20)
+)
+
+(use-package origami
+  :ensure  t
+  :config
+  (global-origami-mode)
+  (define-key origami-mode-map (kbd "C-c C-f") #'origami-toggle-all-nodes)
+  (define-key origami-mode-map (kbd "C-c C-h") #'origami-toggle-node)
+  (define-key origami-mode-map (kbd "C-c C-g") #'origami-open-node-recursively)
+  (define-key origami-mode-map (kbd "s-<mouse-3>") #'origami-toggle-node)
+)
+
 ;; Load CEDET
 ;; (load-file "/usr/share/emacs/site-lisp/cedet/common/cedet.el")
+
+(use-package monky
+  :commands monky-status
+  :defer t
+  :ensure t
+)
 
 (use-package magit
   :bind ("\C-xg" . magit-status)
@@ -7,10 +47,6 @@
 )
 
 ;; (use-package ghub)
-
-;; (use-package magithub
-;;   :after magit
-;;   :config (magithub-feature-autoinject t))
 
 ;; (setq gitlab-host "http://watson:81"
 ;;           gitlab-username "jstitch"
@@ -54,22 +90,6 @@
 )
 
 
-;; web-mode
-(use-package web-mode
-  :load-path "/usr/share/emacs/site-lisp/web-mode"
-  :defer t
-  :config
-  (add-to-list 'auto-mode-alist '("\.html\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\.phtml\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\.tpl\.php\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\.jsp\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\.as[cp]x\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\.erb\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\.mustache\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\.djhtml\'" . web-mode))
-)
-
-
 ;; simple-httpd
 ;; (use-package simple-httpd
 ;;   :config
@@ -79,7 +99,6 @@
 ;; )
 ;; (httpd-start)
 
-
 (use-package imp
   :load-path "~/.emacs.d/site-lisp/imp"
 )
@@ -87,29 +106,18 @@
 ;; ;; VimishFold
 ;; (use-package vimish-fold
 ;;   :defer t
-;;   :bind (("s-v f" . #vimish-fold)
-;;          ("s-v v" . #vimish-fold-delete)
-;;          :map vimish-fold-folded-keymap
+;;   :bind (:map vimish-fold-folded-keymap
 ;;          ("C-g" . nil)
-;;          ("C-h" . #vimish-fold-unfold)
+;;          ("C-h" . #'vimish-fold-unfold)
 ;;          :map vimish-fold-unfolded-keymap
 ;;          ("C-g" . nil)
-;;          ("C-h" . #vimish-fold-refold)
+;;          ("C-h" . #'vimish-fold-refold)
 ;;          ("s-<mouse-3>" . vimish-fold-refold))
 ;;   :config
 ;;   (vimish-fold-global-mode 1)
+;;   (global-set-key (kbd "s-v f") #'vimish-fold)
+;;   (global-set-key (kbd "s-v v") #'vimish-fold-delete)
 ;; )
-
-;; OrigamiMode
-(use-package origami
-  :config
-  (global-origami-mode)
-  (define-key origami-mode-map (kbd "C-c C-f") #'origami-toggle-all-nodes)
-  (define-key origami-mode-map (kbd "C-c C-h") #'origami-toggle-node)
-  (define-key origami-mode-map (kbd "C-c C-g") #'origami-open-node-recursively)
-  (define-key origami-mode-map (kbd "s-<mouse-3>") #'origami-toggle-node)
-)
-
 
 ;; Multi-Term
 (use-package multi-term
@@ -126,6 +134,12 @@
 ;; Eshell
 (use-package eshell
   :commands eshell
+;;  :config
+;; (add-to-list 'eshell-visual-commands "mutt")
+;; (add-to-list 'eshell-visual-commands "links")
+;; (add-to-list 'eshell-visual-commands "htop")
+;; (add-to-list 'eshell-visual-commands "nano")
+;; (add-to-list 'eshell-visual-commands "nethack")
 )
 
 (with-eval-after-load "esh-opt"
@@ -134,7 +148,7 @@
         eshell-prompt-function 'epe-theme-lambda))
 (with-eval-after-load "esh-opt"
   (use-package virtualenvwrapper
-    :defer t
+    ;; :defer t
     :config
     (venv-initialize-eshell)
     (autoload 'epe-theme-lambda "eshell-prompt-extras")
@@ -142,9 +156,55 @@
           eshell-prompt-function 'epe-theme-lambda))
   )
 
-(eshell-git-prompt-use-theme 'powerline)
-;; (add-to-list 'eshell-visual-commands "mutt")
-;; (add-to-list 'eshell-visual-commands "links")
-;; (add-to-list 'eshell-visual-commands "htop")
-;; (add-to-list 'eshell-visual-commands "nano")
-;; (add-to-list 'eshell-visual-commands "nethack")
+(use-package eshell-git-prompt
+  :defer t
+  :ensure t
+  :config
+  (eshell-git-prompt-use-theme 'powerline)
+)
+
+(use-package eshell-prompt-extras
+  :defer t
+  :ensure t
+)
+
+
+(use-package gnuplot
+  :defer t
+  :ensure t
+)
+
+;; Arduino Fun!!!
+(add-to-list 'load-path "~/.emacs.d/site-lisp/arduino-mode")
+(setq auto-mode-alist (cons '("\\.\\(pde\\|ino\\)$" . arduino-mode) auto-mode-alist))
+(autoload 'arduino-mode "arduino-mode" "Arduino editing mode." t)
+
+;; Wesnoth Mode
+(add-to-list 'load-path "~/.emacs.d/site-lisp/wesnoth-mode")
+(autoload 'wesnoth-mode "wesnoth-mode" "Major mode for editing WML." t)
+
+
+;; Moz-controller mode
+(use-package moz-controller
+  :defer t
+)
+
+
+;; Pandoc
+(use-package pandoc
+  :commands pandoc-open-eww
+  :defer t
+  :ensure t
+)
+
+
+;; rainbow mode
+(use-package rainbow-mode
+  :commands rainbow-mode
+  :ensure t
+)
+(use-package rainbow-delimiters
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+)

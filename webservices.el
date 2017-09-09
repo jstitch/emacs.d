@@ -8,7 +8,7 @@
 
 ;;; Emacs/W3 Configuration
 (setq load-path (cons "/usr/share/emacs/site-lisp" load-path))
-(condition-case () (use-package w3-auto "w3-auto") (error nil))
+(condition-case () (require 'w3-auto "w3-auto") (error nil))
 
 ;;
 ;; ;; emacs-google
@@ -21,6 +21,12 @@
 ;;   (setq google-calendar-url            "https://www.google.com/calendar/ical/XXX/privateXXX/basic.ics") ;;; URL TO YOUR GOOGLE CALENDAR
 ;;   (setq google-calendar-auto-update    t )  ;;; DEFINE IF THE CALENDAR IS DOWNLOADED AFTER EVERY MODIFICATION
 ;; )
+
+;; google-translate
+(use-package google-translate
+  :defer t
+  :ensure t
+)
 
 ;; Add Urban Dictionary to webjump
 (global-set-key (kbd "C-x w") 'webjump)
@@ -78,6 +84,11 @@
 (setq erc-hide-list '("JOIN" "PART" "QUIT"))
 (global-set-key (kbd "C-c E") 'rgr/ido-erc-buffer)
 
+(use-package erc-nick-notify
+  :defer t
+  :ensure t
+)
+
 ;; OAuth mode
 ;; (use-package oauth
 ;;   :defer t
@@ -104,8 +115,51 @@
   (shell-command
    (concat "youtube-dl  -o - " url " | mplayer -")))
 
+;; browse-at-remote
+(use-package browse-at-remote
+  :commands browse-at-remote
+)
+
+;; gist
+(use-package gist
+  :defer t
+  :ensure t
+)
+
+;; git-timemachine
+(use-package git-timemachine
+  :commands git-timemachine
+  :ensure t
+)
+
+(use-package skype
+  :defer t ;; defering while not knowing how to use this mode
+  :config
+  (setq skype--my-user-handle "javistitch")
+)
+
+(use-package sx
+  :defer t
+  :config
+  (bind-keys :prefix "C-c s"
+             :prefix-map my-sx-map
+             :prefix-docstring "Global keymap for SX."
+             ("q" . sx-tab-all-questions)
+             ("i" . sx-inbox)
+             ("o" . sx-open-link)
+             ("u" . sx-tab-unanswered-my-tags)
+             ("a" . sx-ask)
+             ("s" . sx-search))
+)
+
+(use-package wiki-summary
+  :commands wiki-summary
+  :ensure t
+)
+
 ;; Webkit
 ;; (load-user-file "webkit.el")
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Elfeed feed reader                                                     ;;
@@ -121,7 +175,8 @@
               ("8" . bjm/elfeed-unstar)
               ("t" . elfeed-show-tag)
               ("T" . elfeed-show-untag)
-              ))
+         )
+)
 
 ;;shortcut functions
 (defun bjm/elfeed-show-all ()
@@ -179,6 +234,11 @@
   (elfeed-org)
   (setq rmh-elfeed-org-files (list "/home/jstitch/org/elfeed.org"))
   )
+
+(use-package elfeed-web
+  :commands elfeed-web-start
+  :ensure t
+)
 
 ;; elfeed star
 ;;shortcut to jump to starred bookmark
