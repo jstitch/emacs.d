@@ -81,9 +81,16 @@ http://invernalia.homelinux.net/jstitch
   (setq mu4e-html2text-command "html2text -utf8 -nobs -width 72")
   ;; enable inline images
   (setq mu4e-view-show-images t)
+  ;; kill message buffer after sending it
+  (setq message-kill-buffer-on-exit t)
+  ;; Don't ask to quit
+  (setq mu4e-confirm-quit nil)
   ;; use imagemagick, if available
   (when (fboundp 'imagemagick-register-types)
     (imagemagick-register-types))
+)
+(use-package org-mu4e
+  :config (setq org-mu4e-link-query-in-headers-mode nil)
 )
 
 ;; Remember mode
