@@ -23,6 +23,7 @@
 ;;   (add-to-list 'emms-player-list 'emms-player-mpd)
 ;;   (setq emms-volume-change-function 'emms-volume-mpd-change)
 ;; )
+(put 'emms-browser-delete-files 'disabled nil)
 
 
 (use-package spotify

@@ -76,11 +76,16 @@
 
 (use-package info-look)
 
+;; stop on subwords (camelCase words)
+(global-subword-mode 1)
+
+;; make typing NOT delete/overwrites selected text
+(delete-selection-mode 0)
+
 (eval-after-load "dired-aux"
    '(add-to-list 'dired-compress-file-suffixes
                  '("\\.zip\\'" ".zip" "unzip")))
 
-(put 'emms-browser-delete-files 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 
 ;; auto-fill mode turn

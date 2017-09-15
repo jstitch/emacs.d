@@ -91,6 +91,15 @@
   :ensure t
 )
 
+;; easyPG
+(use-package epa-file
+  :config
+  (epa-file-enable)
+)
+
+;; Helm
+(use-package helm)
+(setq helm-locate-command "locate %s -e -A --regex %s")
 
 ;; (load "~/.emacs.d/site-lisp/fireplace.el")
 
