@@ -138,6 +138,7 @@ http://invernalia.homelinux.net/jstitch
 
 ;; demo-it
 (use-package demo-it
+  :defer t
   :ensure t
 )
 (use-package expand-region
