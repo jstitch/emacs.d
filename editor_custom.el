@@ -44,6 +44,8 @@
 (use-package treemacs
   :commands treemacs
   :ensure t
+  ;; toggle treemacs
+  :bind ("s-t" . treemacs-toggle)
 )
 
 ;; smex
