@@ -32,12 +32,18 @@
   :ensure t
 )
 
-;; ;; Minimap
+;; Minimap
 (use-package minimap
   :defer t
   :ensure t
   ;; toggle minimap
   :bind ("s-m" . minimap-toggle)
+  )
+
+;; Treemacs
+(use-package treemacs
+  :commands treemacs
+  :ensure t
 )
 
 ;; smex
