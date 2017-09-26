@@ -75,9 +75,18 @@
   :ensure t
 )
 
+;; Dired
+(setq dired-dwim-target t)
+
 ;; Dired-rainbow
 (use-package dired-rainbow
   :defer t
+  :ensure t
+  )
+
+;; Dired-details
+(use-package dired-details
+  :commands dired-details-toggle
   :ensure t
 )
 
