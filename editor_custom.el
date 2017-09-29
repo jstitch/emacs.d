@@ -90,6 +90,10 @@
   :ensure t
 )
 
+(eval-after-load "dired-aux"
+   '(add-to-list 'dired-compress-file-suffixes
+                 '("\\.zip\\'" ".zip" "unzip")))
+
 ;; golden-ratio
 (use-package golden-ratio
   :commands golden-ratio
@@ -117,6 +121,19 @@
 ;; Helm
 (use-package helm)
 (setq helm-locate-command "locate %s -e -A --regex %s")
+
+;; interactively do things mode
+(use-package ido-completing-read+
+  :ensure t
+  :config
+  (ido-mode t)
+  (ido-everywhere t)
+  (ido-ubiquitous-mode t)
+)
+
+(use-package idomenu
+  :ensure t
+)
 
 ;; (load "~/.emacs.d/site-lisp/fireplace.el")
 

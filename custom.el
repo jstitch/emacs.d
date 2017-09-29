@@ -61,19 +61,6 @@
 ;;   :config
 ;;   (persistent-scratch-setup-default))
 
-;; interactively do things mode
-(use-package ido-completing-read+
-  :ensure t
-  :config
-  (ido-mode t)
-  (ido-everywhere t)
-  (ido-ubiquitous-mode t)
-)
-
-(use-package idomenu
-  :ensure t
-)
-
 (use-package info-look)
 
 ;; stop on subwords (camelCase words)
@@ -81,10 +68,6 @@
 
 ;; make typing NOT delete/overwrites selected text
 (delete-selection-mode 0)
-
-(eval-after-load "dired-aux"
-   '(add-to-list 'dired-compress-file-suffixes
-                 '("\\.zip\\'" ".zip" "unzip")))
 
 (put 'narrow-to-region 'disabled nil)
 
