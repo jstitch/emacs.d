@@ -183,3 +183,8 @@
       "Change the current buffer to Latin 1 with Mac line-ends."
       (interactive)
       (set-buffer-file-coding-system 'iso-latin-1-mac t))
+
+
+;; make cursor the width of the character it is under
+;; i.e. full width of a TAB
+(setq x-stretch-cursor t)
