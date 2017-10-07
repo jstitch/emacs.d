@@ -105,7 +105,7 @@ http://invernalia.homelinux.net/jstitch
   (mu4e~proc-kill)
   (message "mu4e")
 )
-(run-with-timer 0 60 'jnc-mu4e-allow-index-when-open)
+;; (run-with-timer 0 60 'jnc-mu4e-allow-index-when-open)
 
 ;; Remember mode
 (use-package remember
