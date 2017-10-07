@@ -83,6 +83,13 @@
   (autoload 'python-mode "python-mode.el" "Python mode." t)
 )
 
+;; typescript-mode
+(use-package typescript-mode
+  :mode "\\.ts\\'"
+  :interpreter "typescript"
+  :ensure t
+)
+
 
 ;; sql completion
 (use-package sql-completion
