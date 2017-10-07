@@ -22,3 +22,10 @@
 (use-package top
   :commands top
 )
+
+
+(use-package logview
+  :commands logview-mode
+  :ensure t
+  :defer t
+)
