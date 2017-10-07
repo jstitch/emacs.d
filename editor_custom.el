@@ -56,6 +56,12 @@
 
 (use-package info-look)
 
+(use-package vlf
+  :ensure t
+  :config
+  (require 'vlf-setup)
+)
+
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
