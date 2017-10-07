@@ -11,17 +11,6 @@
   :ensure t
 )
 
-(use-package auto-complete
-  :ensure t
-  :config
-  (global-auto-complete-mode t)
-  (setq
-   ac-auto-start 2
-   ac-override-local-map nil
-   ac-use-menu-map t
-   ac-candidate-limit 20)
-)
-
 (use-package origami
   :ensure  t
   :config
@@ -208,3 +197,16 @@
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 )
+
+
+
+(use-package auto-complete
+  :ensure t
+  :config
+  (global-auto-complete-mode t)
+  (setq
+   ac-auto-start 2
+   ac-override-local-map nil
+   ac-use-menu-map t
+   ac-candidate-limit 20)
+  )
