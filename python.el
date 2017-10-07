@@ -25,7 +25,6 @@
                       (getenv "PYTHONPATH") ":"
                       "/opt/podemosprogresar/lib/python"))
 
-
 ;; ;; jedi
 ;; (use-package jedi
 ;;   :config
@@ -109,6 +108,6 @@
 ;;    "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
 ;; )
 
-(use-package nose
-  :defer t
-)
+;; (use-package nose
+;;   :defer t
+;; )
