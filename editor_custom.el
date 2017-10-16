@@ -176,6 +176,15 @@
    '(add-to-list 'dired-compress-file-suffixes
                  '("\\.zip\\'" ".zip" "unzip")))
 
+;; Dired-subtree
+(use-package dired-subtree
+  :ensure t
+  :config
+  (bind-keys :map dired-mode-map
+             ("i" . dired-subtree-insert)
+             (";" . dired-subtree-remove)))
+
+
 ;; golden-ratio
 (use-package golden-ratio
   :commands golden-ratio
