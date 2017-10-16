@@ -88,6 +88,13 @@
   :mode "\\.ts\\'"
   :interpreter "typescript"
   :ensure t
+  )
+
+;; hy-mode
+(use-package hy-mode
+  :mode "\\.hy\\'"
+  :interpreter "python"
+  :ensure t
 )
 
 
