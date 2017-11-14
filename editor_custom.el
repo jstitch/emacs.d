@@ -49,6 +49,7 @@
 (use-package color-theme
   :defer t
 )
+
 ;; Github-theme
 (use-package github-theme
   :defer t

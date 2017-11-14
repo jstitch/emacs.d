@@ -102,5 +102,3 @@
   :interpreter "csv"
   :ensure t
 )
-
-;; (load-user-file "exwm.el")

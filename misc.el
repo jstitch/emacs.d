@@ -1,3 +1,9 @@
+;; svg-clock
+(use-package svg-clock
+  :commands svg-clock
+  :ensure t
+  )
+
 ;; nethack
 (add-to-list 'load-path "~/.emacs.d/site-lisp/nethack_el-0.9.5")
 (autoload 'nethack "nethack" "Play Nethack." t)
