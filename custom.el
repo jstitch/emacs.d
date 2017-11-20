@@ -102,3 +102,16 @@
   :interpreter "csv"
   :ensure t
 )
+
+
+;; Multiple cursors
+(use-package multiple-cursors
+  :load-path "/usr/share/emacs/site-lisp/multiple-cursors"
+  :ensure t
+  :config
+  ;;(global-unset-key (kbd "C-<down-mouse-1>"))
+  ;;(global-set-key (kbd "C-<mouse-1>") 'mc/add-cursor-on-click)
+  (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+)
