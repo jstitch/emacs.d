@@ -15,7 +15,12 @@
   (add-to-list 'load-path "~/.emacs.d/elpa")
   ;; el-get
   (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-)
+  )
+
+(use-package paradox
+  :commands paradox-list-packages
+  :ensure t
+  )
 
 
 (unless (require 'el-get nil 'noerror)
