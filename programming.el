@@ -180,6 +180,9 @@
 
 
 ;; sql
+(use-package sql-indent
+  :defer t
+  :ensure t)
 (eval-after-load "sql"
   '(load-library "sql-indent"))
 
