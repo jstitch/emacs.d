@@ -3,6 +3,9 @@
 ;;   :config
 ;;   (persistent-scratch-setup-default))
 
+;; colored output issues
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
 ;; empty lines at bottom indicator
 ;; extra whitespace in red
 (add-hook 'prog-mode-hook
