@@ -17,7 +17,8 @@
 (add-hook 'prog-mode-hook 'hl-line-mode)
 
 ;; Copy to clipboard
-(load-file "~/.emacs.d/site-lisp/xclip.el")
+(use-package xclip
+  :ensure t)
 
 ;; stop on subwords (camelCase words)
 (global-subword-mode 1)
