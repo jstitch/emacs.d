@@ -174,7 +174,8 @@
 
 
 ;; restclient mode
-(use-package restclient-mode
+(use-package restclient
+  :ensure t
   :commands restclient-mode
 )
 
