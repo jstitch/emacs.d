@@ -101,8 +101,12 @@
   :mode "\\.csv\\'"
   :interpreter "csv"
   :ensure t
-)
+  )
 
+;; Markdown-mode
+(use-package markdown-mode
+  :mode "\\.md\\'"
+  :ensure t)
 
 ;; Multiple cursors
 (use-package multiple-cursors
