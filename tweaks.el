@@ -1,12 +1,16 @@
 ;; Spacemacs theme
-(use-package spacemacs-theme
-  :ensure t
-  :init
-  (load-theme 'spacemacs-dark t)
-  (setq spacemacs-theme-org-agenda-height nil)
-  (setq spacemacs-theme-org-height nil))
+(load-theme 'spacemacs-dark t)
+(setq spacemacs-theme-org-agenda-height nil)
+(setq spacemacs-theme-org-height nil)
+;; (use-package spacemacs-theme
+;;   :ensure t
+;;   :init
+;;   (load-theme 'spacemacs-dark t)
+;;   (setq spacemacs-theme-org-agenda-height nil)
+;;   (setq spacemacs-theme-org-height nil))
 (use-package spaceline
   :demand t
+  :ensure t
   :init
   (setq powerline-default-separator 'arrow-fade)
   :config
