@@ -214,7 +214,8 @@
 )
 
 ;; Helm
-(use-package helm)
+(use-package helm
+  :ensure t)
 (setq helm-locate-command "locate %s -e -A --regex %s")
 
 ;; interactively do things mode
