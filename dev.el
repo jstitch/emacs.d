@@ -37,6 +37,10 @@
 
 ;; (use-package ghub)
 
+;; (use-package glab)
+
+;; (use-package magithub)
+
 ;; (setq gitlab-host "http://watson:81"
 ;;           gitlab-username "jstitch"
 ;;           gitlab-password "")
@@ -209,4 +213,11 @@
    ac-override-local-map nil
    ac-use-menu-map t
    ac-candidate-limit 20)
+  )
+
+
+(use-package wakatime-mode
+  :ensure t
+  :config
+  (global-wakatime-mode)
   )
