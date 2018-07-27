@@ -243,10 +243,10 @@
 (load-user-file "python.el")
 (load-user-file "tweaks.el")
 (load-user-file "webservices.el")
-(load-user-file "office.el")
 (load-user-file "media.el")
 (load-user-file "misc.el")
 (load-user-file "unused.el")
+(load-user-file "office.el")
 
 
 (message "Hello, world!")
