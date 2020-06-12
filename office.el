@@ -431,3 +431,10 @@
 (use-package fancy-narrow
   :ensure t
 )
+
+(use-package slack
+  :ensure t
+  :commands (slack-start slack-channel-list-update)
+  :init
+  (setq slack-buffer-emojify t) ;; if you want to enable emoji, default nil
+  (setq slack-prefer-current-team t)
