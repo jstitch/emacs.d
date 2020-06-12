@@ -34,3 +34,4 @@
 
 ;; open config (this file) easily
 (global-set-key (kbd "C-c e") (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
+(put 'downcase-region 'disabled nil)
