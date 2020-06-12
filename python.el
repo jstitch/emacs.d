@@ -1,3 +1,8 @@
+(use-package pyvenv
+  :defer t
+  :ensure t
+)
+
 (use-package virtualenv
   :defer t
   :ensure t
@@ -6,6 +11,8 @@
   :defer t
   :ensure t
 )
+
+(setq py-set-complete-keymap-p t)
 
 (add-hook 'Info-mode-hook		; After Info-mode has started
           (lambda ()
