@@ -221,3 +221,18 @@
   :config
   (global-wakatime-mode)
   )
+
+
+;; flycheck
+(use-package flycheck
+  :defer t
+  :ensure t
+  :config
+  (global-flycheck-mode)
+)
+
+;; all-the-icons
+(use-package all-the-icons
+  :defer t
+  :ensure t
+)
