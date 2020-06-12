@@ -195,3 +195,23 @@
   (tagedit-add-paredit-like-keybindings)
   (add-hook 'html-mode-hook (lambda () (tagedit-mode 1)))
 )
+
+
+;; AngularJS
+(use-package angular-mode
+  :defer t
+  :ensure t
+)
+
+
+;; Rust
+(use-package rust-mode
+  :defer t
+  :ensure t
+)
+
+(use-package xcscope
+  :defer t
+  :ensure t
+)
+(cscope-setup)
