@@ -41,7 +41,16 @@
 
 
 ;; SCRUM
-(load-user-file "scrum.el")
+;; (load-user-file "scrum.el")
+(use-package uml-mode
+  :ensure t
+  :defer t
+)
+(use-package org-scrum
+  :ensure t
+  :defer t
+)
+(load-user-file "org-scrum.el")
 
 ;; Calfw Calendar
 (use-package calfw
