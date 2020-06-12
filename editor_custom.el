@@ -232,6 +232,11 @@
   :ensure t
 )
 
+(use-package alert
+  :commands (alert)
+  :init
+  (setq alert-default-style 'notifier))
+
 ;; (load "~/.emacs.d/site-lisp/fireplace.el")
 
 
@@ -249,5 +254,6 @@
 (load-user-file "office.el")
 
 
+(shell-command-to-string "echo -n $(date +%j)")
 (message "Hello, world!")
 (about-emacs)
