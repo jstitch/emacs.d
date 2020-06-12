@@ -90,7 +90,7 @@
    mu4e-trash-folder  "/trash"      ;; trashed messages
    mu4e-refile-folder "/archive"    ;; saved messages)
   );; (setq mu4e-html2text-command "w3m -T text/html")(
-  (setq mu4e-html2text-command "html2text -utf8 -nobs -width 72")
+  (setq mu4e-html2text-command "html2text2 -b 72 --unicode-snob --mark-code")
   ;; enable inline images
   (setq mu4e-view-show-images t)
   ;; kill message buffer after sending it
@@ -126,7 +126,7 @@
                " .<br />\n"
                "..:</p>\n"
                "<p>D: Blvd. Manuel Ávila Camacho #2258, 2do piso, ciudad Satélite, Naucalpan de Juárez, Estado de México, C.P. 53100</p>\n"
-               "<p>T: 16682585        M: jstitch@gmail.com</p>\n"
+               "<p>T: 16682585        M: j.novoa@podemos.mx</p>\n"
                "<p>W: http://podemos.mx</p>\n"
                "<p>El contenido de este mensaje y sus anexos son de carácter estrictamente confidencial y única y exclusivamente para el uso de la(s) persona(s) o entidad(es) a quien(es) está dirigido. Si la persona que recibe este correo electrónico no es su destinatario, se le notifica que cualquier modificación, divulgación, utilización o copia del mismo está prohibida y será denunciada y en su caso sancionada en términos de los ordenamientos legales aplicables. Si usted ha recibido este mensaje por error, borrarlo de inmediato de su sistema y en su caso destruirlo. Revisa nuestro aviso de privacidad http://podemos.mx/aviso-privacidad.html</p>\n"
                "</body></html><#/part>\n"))
@@ -305,7 +305,7 @@
                                                         <tr>
                                                             <td width=\"26\" height=\"30\" valign=\"top\"><img src=\"http://podemos.mx/Firma/icons/icon_green_email.png\" alt=\"Email\" border=\"0\" width=\"20\" style=\"padding:3px 0 0 0; display:block; border:0; outline:none;\" /></td>
                                                             <!-- Edit your Email address -->
-                                                            <td width=\"\" height=\"30\" valign=\"top\" align=\"left\" style=\"font-family:'Raleway', sans-serif, Arial; font-size:12px; line-height:24px; font-weight:400; color:#2f3542;\"><a href=\"mailto:jstitch@gmail.com\" style=\"text-decoration:none; color:#2f3542;\">jstitch@gmail.com</a></td>
+                                                            <td width=\"\" height=\"30\" valign=\"top\" align=\"left\" style=\"font-family:'Raleway', sans-serif, Arial; font-size:12px; line-height:24px; font-weight:400; color:#2f3542;\"><a href=\"mailto:j.novoa@podemos.mx\" style=\"text-decoration:none; color:#2f3542;\">j.novoa@podemos.mx</a></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
