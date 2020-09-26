@@ -27,9 +27,9 @@
   :ensure t
 )
 ;; Babel Org-Mode
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((python . t) (sh . t)))
+;; (org-babel-do-load-languages
+;;  'org-babel-load-languages
+;;  '((python . t) (sh . t)))
 
 ;; set sizes here to stop spacemacs theme resizing these
 (set-face-attribute 'org-level-1 nil :height 1.0)
@@ -437,4 +437,4 @@
   :commands (slack-start slack-channel-list-update)
   :init
   (setq slack-buffer-emojify t) ;; if you want to enable emoji, default nil
-  (setq slack-prefer-current-team t)
+  (setq slack-prefer-current-team t))
