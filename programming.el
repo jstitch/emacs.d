@@ -209,6 +209,11 @@
   :defer t
   :ensure t
 )
+(use-package cargo
+  :defer t
+  :ensure t
+)
+(add-hook 'rust-mode-hook 'cargo-minor-mode)
 
 (use-package xcscope
   :defer t
