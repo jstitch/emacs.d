@@ -237,6 +237,10 @@
   :init
   (setq alert-default-style 'notifier))
 
+(use-package dmenu
+  :ensure t
+)
+
 ;; (load "~/.emacs.d/site-lisp/fireplace.el")
 
 
