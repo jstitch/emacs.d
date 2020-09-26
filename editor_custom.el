@@ -25,8 +25,8 @@
 
 ;; Transparency
 ;;;;(set-frame-parameter (selected-frame) 'alpha '(<active> [<inactive>]))
-(set-frame-parameter (selected-frame) 'alpha '(85 75))
-(add-to-list 'default-frame-alist '(alpha 85 75))
+(set-frame-parameter (selected-frame) 'alpha '(90 80))
+(add-to-list 'default-frame-alist '(alpha 90 80))
 
 ;; find file in repo
 (use-package find-file-in-repository

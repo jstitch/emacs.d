@@ -67,6 +67,7 @@
 (require 'cl-lib)
 
 (wallpaper-set-wallpaper)
+(global-set-key (kbd "C-s-w") 'wallpaper-set-wallpaper)
 
 (display-time-mode)
 (display-battery-mode)
