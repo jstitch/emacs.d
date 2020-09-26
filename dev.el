@@ -135,18 +135,44 @@
 ;; (add-to-list 'eshell-visual-commands "nethack")
 )
 
+;; (setq eshell-prompt-function
+;; (lambda ()
+;; (concat
+;; (propertize "┌─[" 'face `(:foreground "green"))
+;; (propertize (user-login-name) 'face `(:foreground "yellow"))
+;; (propertize "@" 'face `(:foreground "green"))
+;; (propertize (system-name) 'face `(:foreground "blue"))
+;; (propertize "]─[" 'face `(:foreground "green"))
+;; (propertize (format-time-string "%H:%M" (current-time)) 'face `(:foreground "yellow"))
+;; (propertize "]─[" 'face `(:foreground "green"))
+;; (propertize (concat (eshell/pwd)) 'face `(:foreground "white"))
+
+;; ;; (propertize "]─[" 'face `(:foreground "green"))
+;; ;; (propertize (concat "G:" (eshell-git-prompt--git-string "symbolic-ref" "HEAD" "--short")))
+
+;; (propertize "]\n" 'face `(:foreground "green"))
+;; (propertize "└─>" 'face `(:foreground "green"))
+;; (propertize (if (= (user-uid) 0) " # " " λ ") 'face `(:foreground "green"))
+;; )))
+
+(use-package eshell-prompt-extras
+  :defer t
+  :ensure t
+  )
+
 (with-eval-after-load "esh-opt"
-  (autoload 'epe-theme-lambda "eshell-prompt-extras")
+  (autoload 'epe-theme-multiline-with-status "eshell-prompt-extras")
   (setq eshell-highlight-prompt nil
-        eshell-prompt-function 'epe-theme-lambda))
+        eshell-prompt-function 'epe-theme-multiline-with-status))
+
 (with-eval-after-load "esh-opt"
   (use-package virtualenvwrapper
     ;; :defer t
     :config
     (venv-initialize-eshell)
-    (autoload 'epe-theme-lambda "eshell-prompt-extras")
+    (autoload 'epe-theme-multiline-with-status "eshell-prompt-extras")
     (setq eshell-highlight-prompt nil
-          eshell-prompt-function 'epe-theme-lambda))
+          eshell-prompt-function 'epe-theme-multiline-with-status))
   )
 
 (use-package eshell-git-prompt
@@ -154,12 +180,13 @@
   :ensure t
   :config
   (eshell-git-prompt-use-theme 'powerline)
-)
+  )
 
-(use-package eshell-prompt-extras
+(use-package esh-autosuggest
+  :hook (eshell-mode . esh-autosuggest-mode)
   :defer t
   :ensure t
-)
+  )
 
 
 (use-package gnuplot
