@@ -25,8 +25,8 @@
 
 ;; Transparency
 ;;;;(set-frame-parameter (selected-frame) 'alpha '(<active> [<inactive>]))
-(set-frame-parameter (selected-frame) 'alpha '(90 80))
-(add-to-list 'default-frame-alist '(alpha 90 80))
+(set-frame-parameter (selected-frame) 'alpha '(95 85))
+(add-to-list 'default-frame-alist '(alpha 95 85))
 
 ;; find file in repo
 (use-package find-file-in-repository
@@ -239,7 +239,15 @@
 
 (use-package dmenu
   :ensure t
+  )
+
+(use-package iflipb
+  :ensure t
 )
+(global-set-key (kbd "<C-tab>") 'iflipb-next-buffer)
+(global-set-key
+ (if (featurep 'xemacs) (kbd "<C-iso-left-tab>") (kbd "<C-S-iso-lefttab>"))
+ 'iflipb-previous-buffer)
 
 ;; (load "~/.emacs.d/site-lisp/fireplace.el")
 
