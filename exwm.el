@@ -103,7 +103,6 @@
            (wallpaper-cycle-interval 45)
            (wallpaper-cycle-directory "~/Imagenes/wallpapers")))
 (require 'cl-lib)
-(wallpaper-set-wallpaper)
 (global-set-key (kbd "C-s-w") 'wallpaper-set-wallpaper)
 
 ;; Global keys
@@ -182,3 +181,5 @@
 (eshell)
 (kill-buffer "*About GNU Emacs*")
 ;;; exwm ends here
+
+(wallpaper-set-wallpaper)

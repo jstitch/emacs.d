@@ -244,9 +244,9 @@
 (use-package iflipb
   :ensure t
 )
-(global-set-key (kbd "<C-tab>") 'iflipb-next-buffer)
+(global-set-key (kbd "<C-M-tab>") 'iflipb-next-buffer)
 (global-set-key
- (if (featurep 'xemacs) (kbd "<C-iso-left-tab>") (kbd "<C-S-iso-lefttab>"))
+ (if (featurep 'xemacs) (kbd "<C-M-iso-left-tab>") (kbd "<C-M-iso-lefttab>"))
  'iflipb-previous-buffer)
 
 ;; (load "~/.emacs.d/site-lisp/fireplace.el")
