@@ -87,11 +87,12 @@
 (push (elt (kbd "M-s-t") 0) exwm-input-prefix-keys)
 
 ;; Lock screen (screensaver)
-(defun screensaver ()
-  "Activate screensaver."
-  (interactive)
-  (shell-command "xscreensaver-command -activate"))
-(global-set-key (kbd "C-M-S-l") 'screensaver)
+(exwm-input-set-key (kbd "C-M-S-l") (lambda ()
+                                    (interactive)
+                                    (let
+                                        ((comando "xscreensaver-command -activate"))
+                                      (start-process-shell-command comando nil comando))))
+(push (elt (kbd "C-M-S-l") 0) exwm-input-prefix-keys)
 
 ;; Wallpaper
 (use-package wallpaper
@@ -152,7 +153,7 @@
 
 ;; Multimonitor
 (require 'exwm-randr)
-(setq exwm-randr-workspace-output-plist '(0 "DP-1" 1 "eDP-1" 2 "HDMI-2"))
+(setq exwm-randr-workspace-output-plist '(1 "DP-1" 0 "eDP-1" 2 "HDMI-2"))
 (add-hook 'exwm-randr-screen-change-hook
           (lambda ()
             (start-process-shell-command
@@ -169,15 +170,25 @@
 (global-set-key (kbd "C-M-s-w") 'tres_pantallas)
 
 ;; Enable EXWM
+(start-process-shell-command "xrandr-provideroutputsource" nil "xrandr --setprovideroutputsource modesetting NVIDIA-0")
+(start-process-shell-command "xrandr-auto" nil "xrandr --auto")
+
 (exwm-enable)
 (exwm-randr-enable)
+
+(start-process-shell-command "setxkbmap-latam" nil "setxkbmap -layout latam")
+(start-process-shell-command "xmodmap" nil "xmodmap ~/.xmodmap")
+(start-process-shell-command "numlockx" nil "numlockx")
+(start-process-shell-command "xscreensaver" nil "xscreensaver -nosplash")
+(start-process-shell-command "xcompmgr" nil "xcompmgr")
 
 ;; tweaks
 ;; time
 (display-time-mode)
 ;; battery
 (display-battery-mode)
-;; eshel
+
+;; eshell
 (eshell)
 (kill-buffer "*About GNU Emacs*")
 ;;; exwm ends here

@@ -84,7 +84,7 @@
 (use-package recentf
   :defer t
   :ensure t
-  :bind ("s-r" . recentf-open-files)
+  :bind ("C-s-r" . recentf-open-files)
   :config
   (recentf-mode 1)
   (setq recentf-max-menu-items 25)
