@@ -183,6 +183,9 @@
 (start-process-shell-command "xcompmgr" nil "xcompmgr")
 
 ;; tweaks
+(start-process-shell-command "fetchmail" nil "fetchmail")
+(start-process-shell-command "volumeicon" nil "volumeicon")
+(start-process-shell-command "batterymon" nil "batterymon")
 ;; time
 (display-time-mode)
 ;; battery
