@@ -124,7 +124,7 @@
   :defer t
   :ensure t
   ;; toggle minimap
-  :bind ("s-m" . minimap-toggle)
+  :bind ("s-m" . minimap-mode)
   )
 
 ;; Treemacs
@@ -132,7 +132,7 @@
   :commands treemacs
   :ensure t
   ;; toggle treemacs
-  :bind ("s-t" . treemacs-toggle)
+  :bind ("s-t" . treemacs)
 )
 
 ;; smex
