@@ -1,5 +1,9 @@
 (load-user-file "editor_custom.el")
 
+;; follow mouse through workspaces
+(setq mouse-autoselect-window t
+      focus-follows-mouse t)
+
 (require 'exwm)
 (require 'exwm-config)
 
@@ -94,18 +98,6 @@
                                       (start-process-shell-command comando nil comando))))
 (push (elt (kbd "C-M-S-l") 0) exwm-input-prefix-keys)
 
-;; Wallpaper
-(use-package wallpaper
-  :ensure t
-  :hook ((exwm-randr-screen-change . wallpaper-set-wallpaper)
-         (after-init . wallpaper-cycle-mode))
-  :custom ((wallpaper-cycle-single t)
-           (wallpaper-scaling 'scale)
-           (wallpaper-cycle-interval 45)
-           (wallpaper-cycle-directory "~/Imagenes/wallpapers")))
-(require 'cl-lib)
-(global-set-key (kbd "C-s-w") 'wallpaper-set-wallpaper)
-
 ;; Global keys
 (setq exwm-input-global-keys
       `(
@@ -169,31 +161,43 @@
 (global-set-key (kbd "C-M-s-n") 'una_pantalla)
 (global-set-key (kbd "C-M-s-w") 'tres_pantallas)
 
-;; Enable EXWM
 (start-process-shell-command "xrandr-provideroutputsource" nil "xrandr --setprovideroutputsource modesetting NVIDIA-0")
 (start-process-shell-command "xrandr-auto" nil "xrandr --auto")
 
+
+;; Enable EXWM
 (exwm-enable)
 (exwm-randr-enable)
 
+;; Wallpaper
+(use-package wallpaper
+  :ensure t
+  ;; :hook ((exwm-randr-screen-change . wallpaper-set-wallpaper))
+  :custom ((wallpaper-cycle-single t)
+           (wallpaper-scaling 'scale)
+           (wallpaper-cycle-interval 45)
+           (wallpaper-cycle-directory "~/Imagenes/wallpapers")))
+(global-set-key (kbd "C-s-w") 'wallpaper-set-wallpaper)
+(wallpaper-set-wallpaper)
+
+;; Autostart commands
 (start-process-shell-command "setxkbmap-latam" nil "setxkbmap -layout latam")
 (start-process-shell-command "xmodmap" nil "xmodmap ~/.xmodmap")
 (start-process-shell-command "numlockx" nil "numlockx")
 (start-process-shell-command "xscreensaver" nil "xscreensaver -nosplash")
 (start-process-shell-command "xcompmgr" nil "xcompmgr")
+(start-process-shell-command "fetchmail" nil "fetchmail")
 
 ;; tweaks
-(start-process-shell-command "fetchmail" nil "fetchmail")
 (start-process-shell-command "volumeicon" nil "volumeicon")
 (start-process-shell-command "batterymon" nil "batterymon")
+(start-process-shell-command "bluemanapplet" nil "blueman-applet")
 ;; time
 (display-time-mode)
 ;; battery
 (display-battery-mode)
-
 ;; eshell
 (eshell)
 (kill-buffer "*About GNU Emacs*")
-;;; exwm ends here
 
-(wallpaper-set-wallpaper)
+;;; exwm ends here
