@@ -45,14 +45,16 @@
                       (start-process "" nil "amixer" "-D" "pulse" "set" "Master" "toggle")))
 
 ;; Switch buffers with arrows
-(exwm-input-set-key (kbd "S-<left>") 'windmove-left)
-(push (elt (kbd "S-<left>") 0) exwm-input-prefix-keys)
-(exwm-input-set-key (kbd "S-<right>") 'windmove-right)
-(push (elt (kbd "S-<right>") 0) exwm-input-prefix-keys)
-(exwm-input-set-key (kbd "S-<down>") 'windmove-down)
-(push (elt (kbd "S-<down>") 0) exwm-input-prefix-keys)
-(exwm-input-set-key (kbd "S-<up>") 'windmove-up)
-(push (elt (kbd "S-<up>") 0) exwm-input-prefix-keys)
+(exwm-input-set-key (kbd "s-<left>") 'windmove-left)
+(push (elt (kbd "s-<left>") 0) exwm-input-prefix-keys)
+(exwm-input-set-key (kbd "s-<right>") 'windmove-right)
+(push (elt (kbd "s-<right>") 0) exwm-input-prefix-keys)
+(exwm-input-set-key (kbd "s-<down>") 'windmove-down)
+(push (elt (kbd "s-<down>") 0) exwm-input-prefix-keys)
+(exwm-input-set-key (kbd "s-<up>") 'windmove-up)
+(push (elt (kbd "s-<up>") 0) exwm-input-prefix-keys)
+(dolist (key '("S-<left>" "S-<right>" "S-<down>" "S-<up>"))
+  (global-unset-key (kbd key)))
 
 ;; Run external command with helm
 (exwm-input-set-key (kbd "s-<") 'helm-run-external-command)
