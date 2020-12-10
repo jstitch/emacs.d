@@ -12,20 +12,21 @@
   (setq org-agenda-include-all-todo t)
   ;; Org mode
   (setq org-agenda-files (list "~/org/personal.org"
-                               "~/documents/podemos/plan_trabajo/org"))
-  )
+                               "~/documents/podemos/plan_trabajo/org")))
 (use-package org-bullets
   :ensure t
   :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-)
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
 (use-package org-tree-slide
   :ensure t
-)
+  :custom
+  (org-image-actual-width nil))
+
 (use-package org-trello
   :defer t
-  :ensure t
-)
+  :ensure t)
+
 ;; Babel Org-Mode
 ;; (org-babel-do-load-languages
 ;;  'org-babel-load-languages
@@ -44,22 +45,21 @@
 ;; (load-user-file "scrum.el")
 (use-package uml-mode
   :ensure t
-  :defer t
-)
+  :defer t)
+
 (use-package org-scrum
   :ensure t
-  :defer t
-)
+  :defer t)
+
 (load-user-file "org-scrum.el")
 
 ;; Calfw Calendar
 (use-package calfw
   :ensure t
-  :defer t
-)
+  :defer t)
+
 (use-package calfw-org
-  :ensure t
-)
+  :ensure t)
 
 ;; Gnus usenet newsreader / mail client
 (setq gnus-select-method '(nntp "freenews.netfront.net"))
@@ -99,16 +99,16 @@
   (setq mu4e-confirm-quit nil)
   ;; use imagemagick, if available
   (when (fboundp 'imagemagick-register-types)
-    (imagemagick-register-types))
-)
+    (imagemagick-register-types)))
+
 (use-package org-mu4e
-  :config (setq org-mu4e-link-query-in-headers-mode nil)
-  )
+  :config (setq org-mu4e-link-query-in-headers-mode nil))
+
 (defun jnc-mu4e-allow-index-when-open ()
   (interactive)
   (mu4e~proc-kill)
-  (message "mu4e")
-)
+  (message "mu4e"))
+
 ;; (run-with-timer 0 60 'jnc-mu4e-allow-index-when-open)
 (defun my-mu4e-choose-signature ()
   "Insert one of a number of sigs"
@@ -119,7 +119,7 @@
             '(("simpleformal" .
               (concat
                "<#part type=text/html><html><body>\n"
-               "<p><img src='http://podemos.mx/images/logo.png' /></p>\n"
+               "<p><img src='http://podemos.mx/images/logo.png' width='10%' /></p>\n"
                "<p><strong>Javier Novoa Cataño</strong><br />\n"
                "C.T.I. Podemos Progresar<br />\n"
                "http://invernalia.homelinux.net<br />\n"
@@ -381,8 +381,7 @@
   (setq remember-handler-functions '(org-remember-handler))
   (eval-after-load 'remember
     '(add-hook 'remember-mode-hook 'org-remember-apply-template))
-  (global-set-key (kbd "C-c r") 'remember)
-)
+  (global-set-key (kbd "C-c r") 'remember))
 
 ;; Google Calendar agenda
 (defun bjm/open-gcal-agenda ()
@@ -405,32 +404,28 @@
     ;; turn off line wrapping
     (visual-line-mode -1)))
 
-
 ;; PDF-Tools
 (use-package pdf-tools
   :ensure t
   :config
-  (pdf-tools-install)
-)
+  (pdf-tools-install))
 
 ;; nov-el
 (use-package nov
   :mode ("\\.epub\\'" . nov-mode)
-  :ensure t
-)
+  :ensure t)
 
 
 ;; demo-it
 (use-package demo-it
   :defer t
-  :ensure t
-)
+  :ensure t)
+
 (use-package expand-region
-  :ensure t
-)
+  :ensure t)
+
 (use-package fancy-narrow
-  :ensure t
-)
+  :ensure t)
 
 (use-package slack
   :ensure t

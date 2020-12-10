@@ -2,14 +2,12 @@
 (use-package autopair
   :ensure t
   :config
-  (autopair-global-mode)
-)
+  (autopair-global-mode))
 
 (use-package paredit
   :commands paredit-mode
   :defer t
-  :ensure t
-)
+  :ensure t)
 
 (use-package origami
   :ensure  t
@@ -18,8 +16,7 @@
   (define-key origami-mode-map (kbd "C-c C-f") #'origami-toggle-all-nodes)
   (define-key origami-mode-map (kbd "C-c C-h") #'origami-toggle-node)
   (define-key origami-mode-map (kbd "C-c C-g") #'origami-open-node-recursively)
-  (define-key origami-mode-map (kbd "s-<mouse-3>") #'origami-toggle-node)
-)
+  (define-key origami-mode-map (kbd "s-<mouse-3>") #'origami-toggle-node))
 
 ;; Load CEDET
 ;; (load-file "/usr/share/emacs/site-lisp/cedet/common/cedet.el")
@@ -27,13 +24,11 @@
 (use-package monky
   :commands monky-status
   :defer t
-  :ensure t
-)
+  :ensure t)
 
 (use-package magit
   :bind ("\C-xg" . magit-status)
-  :ensure t
-)
+  :ensure t)
 
 ;; (use-package ghub)
 
@@ -79,8 +74,7 @@
 ;; ESS
 (use-package ess-site
   :load-path "/usr/share/emacs/site-lisp/ess"
-  :commands R
-)
+  :commands R)
 
 
 ;; simple-httpd
@@ -93,8 +87,7 @@
 ;; (httpd-start)
 
 (use-package imp
-  :load-path "~/.emacs.d/site-lisp/imp"
-)
+  :load-path "~/.emacs.d/site-lisp/imp")
 
 ;; ;; VimishFold
 ;; (use-package vimish-fold
@@ -157,8 +150,7 @@
 
 (use-package eshell-prompt-extras
   :defer t
-  :ensure t
-  )
+  :ensure t  )
 
 (with-eval-after-load "esh-opt"
   (autoload 'epe-theme-multiline-with-status "eshell-prompt-extras")
@@ -172,27 +164,23 @@
     (venv-initialize-eshell)
     (autoload 'epe-theme-multiline-with-status "eshell-prompt-extras")
     (setq eshell-highlight-prompt nil
-          eshell-prompt-function 'epe-theme-multiline-with-status))
-  )
+          eshell-prompt-function 'epe-theme-multiline-with-status)))
 
 (use-package eshell-git-prompt
   :defer t
   :ensure t
   :config
-  (eshell-git-prompt-use-theme 'powerline)
-  )
+  (eshell-git-prompt-use-theme 'powerline))
 
 (use-package esh-autosuggest
   :hook (eshell-mode . esh-autosuggest-mode)
   :defer t
-  :ensure t
-  )
+  :ensure t)
 
 
 (use-package gnuplot
   :defer t
-  :ensure t
-)
+  :ensure t)
 
 ;; Arduino Fun!!!
 (add-to-list 'load-path "~/.emacs.d/site-lisp/arduino-mode")
@@ -206,28 +194,25 @@
 
 ;; Moz-controller mode
 (use-package moz-controller
-  :defer t
-)
+  :defer t)
 
 
 ;; Pandoc
 (use-package pandoc
   :commands pandoc-open-eww
   :defer t
-  :ensure t
-)
+  :ensure t)
 
 
 ;; rainbow mode
 (use-package rainbow-mode
   :commands rainbow-mode
-  :ensure t
-)
+  :ensure t)
+
 (use-package rainbow-delimiters
   :ensure t
   :config
-  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-)
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
 
 
@@ -239,15 +224,13 @@
    ac-auto-start 2
    ac-override-local-map nil
    ac-use-menu-map t
-   ac-candidate-limit 20)
-  )
+   ac-candidate-limit 20))
 
 
 (use-package wakatime-mode
   :ensure t
   :config
-  (global-wakatime-mode)
-  )
+  (global-wakatime-mode))
 
 
 ;; flycheck
@@ -255,11 +238,9 @@
   :defer t
   :ensure t
   :config
-  (global-flycheck-mode)
-)
+  (global-flycheck-mode))
 
 ;; all-the-icons
 (use-package all-the-icons
   :defer t
-  :ensure t
-)
+  :ensure t)

@@ -11,7 +11,9 @@
 
 ;; EXWM systemtray
 (require 'exwm-systemtray)
+(setq exwm-systemtray-height 16)
 (exwm-systemtray-enable)
+
 ;; 10 workspaces
 (setq exwm-workspace-number 10)
 (setq exwm-workspace-show-all-buffers t)
@@ -191,10 +193,10 @@
 (start-process-shell-command "fetchmail" nil "fetchmail")
 
 ;; tweaks
-(start-process-shell-command "volumeicon" nil "volumeicon")
-(start-process-shell-command "batterymon" nil "batterymon")
+(start-process-shell-command "pasystray" nil "pasystray")
 (start-process-shell-command "bluemanapplet" nil "blueman-applet")
 ;; time
+(setq display-time-day-and-date t)
 (display-time-mode)
 ;; battery
 (display-battery-mode)

@@ -8,15 +8,18 @@
 ;;   (load-theme 'spacemacs-dark t)
 ;;   (setq spacemacs-theme-org-agenda-height nil)
 ;;   (setq spacemacs-theme-org-height nil))
-(use-package spaceline
-  :demand t
-  :ensure t
-  :init
-  (setq powerline-default-separator 'arrow-fade)
-  :config
-  (require 'spaceline-config)
-  (spaceline-spacemacs-theme))
+;; (use-package spaceline
+;;   :demand t
+;;   :ensure t
+;;   :init
+;;   (setq powerline-default-separator 'arrow-fade)
+;;   :config
+;;   (require 'spaceline-config)
+;;   (spaceline-spacemacs-theme))
 
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1))
 
 
 ;; New lines
@@ -182,5 +185,4 @@
 (setq x-stretch-cursor t)
 
 (use-package xterm-color
-  :ensure t
-  )
+  :ensure t)

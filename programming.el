@@ -10,8 +10,7 @@
   (add-to-list 'auto-mode-alist '("\.as[cp]x\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\.erb\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\.mustache\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\.djhtml\'" . web-mode))
-)
+  (add-to-list 'auto-mode-alist '("\.djhtml\'" . web-mode)))
 
 ;; PHP mode
 (autoload 'php-mode "php-mode" "PHP editing mode" t)
@@ -31,8 +30,7 @@
 (use-package drupal-mode
   :defer t
   :config
-  (setup-php-drupal)
-)
+  (setup-php-drupal))
 
 
 ;; YAML mode
@@ -42,30 +40,26 @@
   :ensure t
   :config
   (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
-  (add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))
-)
+  (add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode)))
 
 
 ;; Jinja2 mode
 (use-package jinja2-mode
   :commands jinja2-mode
-  :ensure t
-)
+  :ensure t)
 
 
 ;; javarun mode
 (use-package javarun
   :interpreter "java"
-  :ensure t
-)
+  :ensure t)
 
 
 ;; json-reformat
 (use-package json-reformat
   :defer t
   :commands json-reformat-region
-  :ensure t
-)
+  :ensure t)
 
 
 ;; Go lang mode
@@ -80,22 +74,19 @@
   :interpreter "python"
   :ensure t
   :config
-  (autoload 'python-mode "python-mode.el" "Python mode." t)
-)
+  (autoload 'python-mode "python-mode.el" "Python mode." t))
 
 ;; typescript-mode
 (use-package typescript-mode
   :mode "\\.ts\\'"
   :interpreter "typescript"
-  :ensure t
-  )
+  :ensure t  )
 
 ;; hy-mode
 (use-package hy-mode
   :mode "\\.hy\\'"
   :interpreter "python"
-  :ensure t
-)
+  :ensure t)
 
 
 ;; sql completion
@@ -105,8 +96,7 @@
   (setq sql-interactive-mode-hook
         (lambda ()
           (define-key sql-interactive-mode-map "\t" 'completion-at-point)
-          (sql-mysql-completion-init)))
-)
+          (sql-mysql-completion-init))))
 
 
 ;; Apache mode
@@ -128,56 +118,49 @@
   (add-hook 'clojure-mode-hook 'enable-paredit-mode)
   ;; This is useful for working with camel-case tokens, like names of
   ;; Java classes (e.g. JavaClassName)
-  (add-hook 'clojure-mode-hook 'subword-mode)
-)
+  (add-hook 'clojure-mode-hook 'subword-mode))
 
 
 ;; racket mode
 (use-package racket-mode
   :mode "\\.rkt\\'"
   :interpreter "racket"
-  :ensure t
-)
+  :ensure t)
 
 
 ;; Cider
 (use-package cider
   :commands cider-mode
   :ensure t
-  :defer t
-  )
+  :defer t)
 
 
 ;; Coffee-mode
 (use-package coffee-mode
   :commands coffee-mode
-  :ensure t
-  )
+  :ensure t)
 
 
 ;; Docker
 (use-package docker
   :defer t
-  :ensure t
-)
+  :ensure t)
+
 (use-package dockerfile-mode
   :commands docker-mode
-  :ensure t
-)
+  :ensure t)
 
 
 ;; Dokuwiki mode
 (use-package dokuwiki-mode
   :defer t
-  :ensure t
-)
+  :ensure t)
 
 
 ;; restclient mode
 (use-package restclient
   :ensure t
-  :commands restclient-mode
-)
+  :commands restclient-mode)
 
 
 ;; sql
@@ -193,30 +176,28 @@
   :ensure t
   :config
   (tagedit-add-paredit-like-keybindings)
-  (add-hook 'html-mode-hook (lambda () (tagedit-mode 1)))
-)
+  (add-hook 'html-mode-hook (lambda () (tagedit-mode 1))))
 
 
 ;; AngularJS
 (use-package angular-mode
   :defer t
-  :ensure t
-)
+  :ensure t)
 
 
 ;; Rust
 (use-package rust-mode
   :defer t
-  :ensure t
-)
+  :ensure t)
+
 (use-package cargo
   :defer t
-  :ensure t
-)
+  :ensure t)
+
 (add-hook 'rust-mode-hook 'cargo-minor-mode)
 
 (use-package xcscope
   :defer t
-  :ensure t
-)
+  :ensure t)
+
 (cscope-setup)

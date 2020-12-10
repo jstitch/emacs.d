@@ -1,16 +1,14 @@
 (use-package pyvenv
   :defer t
-  :ensure t
-)
+  :ensure t)
 
 (use-package virtualenv
   :defer t
-  :ensure t
-)
+  :ensure t)
+
 (use-package virtualenvwrapper
   :defer t
-  :ensure t
-)
+  :ensure t)
 
 (setq py-set-complete-keymap-p t)
 
@@ -18,6 +16,7 @@
           (lambda ()
             (setq Info-additional-directory-list Info-default-directory-list)
             ))
+
 (add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
 (setq py-electric-colon-active t)
 (add-hook 'python-mode-hook 'autopair-mode)
