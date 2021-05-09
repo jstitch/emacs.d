@@ -15,6 +15,8 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/emacs-goodies-el")
 
+(require 'gnu-elpa-keyring-update)
+
 (require 'use-package)
 
 (defconst user-init-dir

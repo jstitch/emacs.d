@@ -1,5 +1,6 @@
 (autoload 'pkgbuild-mode "pkgbuild-mode.el" "PKGBUILD mode." t)
 (setq auto-mode-alist (append '(("/PKGBUILD$" . pkgbuild-mode)) auto-mode-alist))
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
 ;; melpa/marmalade
 (use-package package
@@ -9,9 +10,9 @@
                '("melpa" . "http://melpa.org/packages/") t)
 ;;  (add-to-list 'package-archives
 ;;               '("melpa-stable" . "http://hiddencameras.milkbox.net/packages/"))
-  (add-to-list 'package-archives
-               '("marmalade" . "http://marmalade-repo.org/packages/"))
-  ;; elpa
+  ;; (add-to-list 'package-archives
+  ;;              '("marmalade" . "http://marmalade-repo.org/packages/"))
+  ;; Elpa
   (add-to-list 'load-path "~/.emacs.d/elpa")
   ;; el-get
   (add-to-list 'load-path "~/.emacs.d/el-get/el-get")

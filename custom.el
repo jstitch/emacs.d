@@ -119,3 +119,9 @@
   (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 )
+
+;; keybindings
+(global-set-key (kbd "M-|") 'beginning-of-buffer)
+(global-set-key (kbd "M-°") 'end-of-buffer)
+(global-set-key (kbd "M-<") 'beginning-of-buffer)
+(global-set-key (kbd "M->") 'end-of-buffer)
