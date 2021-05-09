@@ -41,11 +41,16 @@
 ;;           gitlab-password "")
 
 
-;; (use-package yasnippet
-;;   :config
-;;   (yas-global-mode 1)
-;; )
-
+(use-package yasnippet
+  :ensure
+  :config
+  ;; (yas-global-mode 1)
+  (yas-reload-all)
+  (add-hook 'prog-mode-hook 'yas-minor-mode)
+  (add-hook 'text-mode-hook 'yas-minor-mode))
+(use-package yasnippet-snippets
+  :defer t)
+(setq yasnippet-snippets-dir "/home/jstitch/.emacs.d/etc/yasnippet/yasnippet-snippets/snippets")
 
 ;;;
 ;;--------------------------------------------------------------------
