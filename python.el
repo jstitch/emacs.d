@@ -86,16 +86,15 @@
   :defer t
   :config
   (setq ein:use-auto-complete-superpack 't)
-  (setq ein:console-args "--profile default")
-)
+  (setq ein:console-args "--profile default"))
 
 
 ;; (elpy-enable)
 ;; (setq elpy-rpc-backend "native")
 
 
-;; activate the virtualenv where Pymacs is located
-;; (virtualenv-workon "podemos/")
+;; activate a virtualenv
+;; (pyvenv-activate "/home/jstitch/.virtualenvs/podemos/")
 
 
 ;; ;; ipython
