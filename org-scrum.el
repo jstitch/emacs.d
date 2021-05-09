@@ -341,8 +341,8 @@ Returns a list of (date actual ideal)."
 
     (cl-mapcar #'list ; this zips the lists together
             (number-sequence 1 sprintlength)
-            (org-scrum--compute-actual-burndown cdate sprintlength tot)
-            (org-scrum--compute-ideal-burndown cdate sprintlength tot))))
+            (org-scrum--compute-ideal-burndown cdate sprintlength tot)
+            (org-scrum--compute-actual-burndown cdate sprintlength tot))))
 
 (defun org-scrum--check-gnuplot-exists ()
   "Check if gnuplot is installed on the system."
@@ -367,7 +367,7 @@ BURNDOWN-DATA) to the current buffer, which should be empty."
   (insert "set xlabel \"day\"\n")
   (insert "set ylabel \"points\"\n")
   (insert (format "set xrange [1:%d]\n" (length burndown-data)))
-  (insert "plot \"-\" using 1:2 with lines ls 1 title \"actual\", \"\" using 1:3 with lines ls 2 title \"ideal\"\n")
+  (insert "plot \"-\" using 1:2 with lines ls 1 title \"ideal\", \"\" using 1:3 with lines ls 2 title \"actual\"\n")
 
   (insert (mapconcat (lambda (row) (apply #'format (cons "%d %s %s" row)))
                      burndown-data
