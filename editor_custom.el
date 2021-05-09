@@ -32,14 +32,12 @@
 (use-package find-file-in-repository
   :commands find-file-in-repository
   :bind ("C-x f" . find-file-in-repository)
-  :ensure t
-)
+  :ensure t)
 
 ;; idle-highlight-mode
 (use-package idle-highlight-mode
   :ensure t
-  :commands idle-highlight-mode
-)
+  :commands idle-highlight-mode)
 
 ;; today's date
 ;; from http://emacswiki.org/emacs/InsertingTodaysDate
@@ -51,21 +49,18 @@
 
 ;; Color-Theme
 (use-package color-theme
-  :defer t
-)
+  :defer t)
 
 ;; Github-theme
 (use-package github-theme
-  :defer t
-)
+  :defer t)
 
 (use-package info-look)
 
 (use-package vlf
   :ensure t
   :config
-  (require 'vlf-setup)
-)
+  (require 'vlf-setup))
 
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
@@ -89,51 +84,44 @@
   (recentf-mode 1)
   (setq recentf-max-menu-items 25)
   (add-to-list 'recentf-exclude no-littering-var-directory)
-  (add-to-list 'recentf-exclude no-littering-etc-directory)
-)
+  (add-to-list 'recentf-exclude no-littering-etc-directory))
 
 (use-package exec-path-from-shell
   :defer t
   :ensure t
-)
+  :init (exec-path-from-shell-initialize))
 
 (use-package server
   :config
   (or (server-running-p)
-      (server-start))
-)
+      (server-start)))
 
 ;; bind-key
 (use-package bind-key
-  :defer t
-)
+  :defer t)
 
 ;; fold-dwim
 (use-package fold-dwim
 ;  :defer t
-  :ensure t
-)
+  :ensure t)
 
 (use-package fuzzy
 ;  :defer t
-  :ensure t
-)
+  :ensure t)
 
 ;; Minimap
 (use-package minimap
   :defer t
   :ensure t
   ;; toggle minimap
-  :bind ("s-m" . minimap-mode)
-  )
+  :bind ("s-m" . minimap-mode))
 
 ;; Treemacs
 (use-package treemacs
   :commands treemacs
   :ensure t
   ;; toggle treemacs
-  :bind ("s-t" . treemacs)
-)
+  :bind ("s-t" . treemacs))
 
 ;; smex
 (use-package smex
@@ -144,8 +132,7 @@
          ;; This is your old M-x.
          ("C-c C-c M-x" . execute-extended-command))
   :config
-  (smex-initialize)
-)
+  (smex-initialize))
 
 ;; Tramp (remote load files)
 (use-package tramp
@@ -154,13 +141,11 @@
   :config
   (setq tramp-default-method "ssh")
   (setq tramp-default-user "jstitch")
-  (set-default 'tramp-default-proxies-alist (quote ((".*" "\\`root\\'" "/ssh:%h:"))))
-)
+  (set-default 'tramp-default-proxies-alist (quote ((".*" "\\`root\\'" "/ssh:%h:")))))
 
 ;; Crux
 (use-package crux
-  :ensure t
-)
+  :ensure t)
 
 ;; Dired
 (setq dired-dwim-target t)
@@ -168,14 +153,12 @@
 ;; Dired-rainbow
 (use-package dired-rainbow
   :defer t
-  :ensure t
-  )
+  :ensure t)
 
 ;; Dired-details
 (use-package dired-details
   :commands dired-details-toggle
-  :ensure t
-)
+  :ensure t)
 
 (eval-after-load "dired-aux"
    '(add-to-list 'dired-compress-file-suffixes
@@ -193,26 +176,22 @@
 ;; golden-ratio
 (use-package golden-ratio
   :commands golden-ratio
-  :ensure t
-)
+  :ensure t)
 
 ;; smart-operator mode
 (use-package smart-operator
   :defer t ;; defering while not knowing how to use this mode
-  :ensure t
-)
+  :ensure t)
 
 ;; tablist
 (use-package tablist
   :defer t
-  :ensure t
-)
+  :ensure t)
 
 ;; easyPG
 (use-package epa-file
   :config
-  (epa-file-enable)
-)
+  (epa-file-enable))
 
 ;; Helm
 (use-package helm
@@ -225,12 +204,10 @@
   :config
   (ido-mode t)
   (ido-everywhere t)
-  (ido-ubiquitous-mode t)
-)
+  (ido-ubiquitous-mode t))
 
 (use-package idomenu
-  :ensure t
-)
+  :ensure t)
 
 (use-package alert
   :commands (alert)
@@ -238,12 +215,10 @@
   (setq alert-default-style 'notifier))
 
 (use-package dmenu
-  :ensure t
-  )
+  :ensure t)
 
 (use-package iflipb
-  :ensure t
-)
+  :ensure t)
 (global-set-key (kbd "<C-M-tab>") 'iflipb-next-buffer)
 (global-set-key
  (if (featurep 'xemacs) (kbd "<C-M-iso-left-tab>") (kbd "<C-M-iso-lefttab>"))
