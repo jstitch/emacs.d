@@ -59,8 +59,8 @@
   (global-unset-key (kbd key)))
 
 ;; Run external command with helm
-(exwm-input-set-key (kbd "s-<") 'helm-run-external-command)
-(push (elt (kbd "s-<") 0) exwm-input-prefix-keys)
+(exwm-input-set-key (kbd "s-|") 'helm-run-external-command)
+(push (elt (kbd "s-|") 0) exwm-input-prefix-keys)
 
 ;; Buffers con titulo de la ventana y no solo de la aplicacion
 (defun exwm-rename-buffer ()
@@ -194,7 +194,7 @@
 
 ;; tweaks
 (start-process-shell-command "pasystray" nil "pasystray")
-(start-process-shell-command "bluemanapplet" nil "blueman-applet")
+(start-process-shell-command "blueberry-tray" nil "blueberry-tray")
 ;; time
 (setq display-time-day-and-date t)
 (display-time-mode)
