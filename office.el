@@ -90,7 +90,7 @@
    mu4e-trash-folder  "/trash"      ;; trashed messages
    mu4e-refile-folder "/archive"    ;; saved messages)
   );; (setq mu4e-html2text-command "w3m -T text/html")(
-  (setq mu4e-html2text-command "html2text2 -b 72 --unicode-snob --mark-code")
+  (setq mu4e-html2text-command "html2text -b 72 --unicode-snob --mark-code")
   ;; enable inline images
   (setq mu4e-view-show-images t)
   ;; kill message buffer after sending it
@@ -433,3 +433,12 @@
   :init
   (setq slack-buffer-emojify t) ;; if you want to enable emoji, default nil
   (setq slack-prefer-current-team t))
+
+
+;; Lorem Ipsum
+(use-package lorem-ipsum
+  :defer t
+  :ensure t)
+(global-set-key (kbd "C-c C-l s") 'lorem-ipsum-insert-sentences)
+(global-set-key (kbd "C-c C-l p") 'lorem-ipsum-insert-paragraphs)
+(global-set-key (kbd "C-c C-l l") 'lorem-ipsum-insert-list)
