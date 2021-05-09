@@ -239,14 +239,101 @@
 ;; (add-hook 'rust-mode-hook 'cargo-minor-mode)
 
 
+(use-package web-mode
   :defer t
   :ensure t)
-
-(use-package cargo
+;; Typescript
+(use-package typescript
   :defer t
   :ensure t)
+(use-package tide
+  :defer t
+  :ensure t
+  :config
+  (progn
+    (company-mode +1)
+    ;; aligns annotation to the right hand side
+    (setq company-tooltip-align-annotations t)
+    (add-hook 'typescript-mode-hook #'setup-tide-mode)
+    (add-hook 'before-save-hook 'tide-format-before-save)
+    (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+))
 
-(add-hook 'rust-mode-hook 'cargo-minor-mode)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages (quote (json-mode js2-mode company web-mode tide flycheck))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+)
+
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  (setq tide-format-options '(:identSize 2 :tabSize 2 :insertSpaceAfterFunctionKeywordForAnonymousFunctions t :placeOpenBraceOnNewLineForFunctions nil))
+  (local-set-key (kbd "C-c d") 'tide-documentation-at-point)
+  ;; company is an optional dependency. You have to
+  ;; install it separately via package-install
+  ;; `M-x package-install [ret] company`
+  (company-mode +1)
+  (setq company-minimum-prefix-length 1))
+;; use web-mode + tide-mode for javascript instead
+(use-package js2-mode
+  :defer t
+  :ensure t
+  :config
+  (progn
+    (add-hook 'js2-mode-hook #'setup-tide-mode)
+    ;; configure javascript-tide checker to run after your default javascript checker
+    (setq js2-basic-offset 2)
+    (flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append)
+    (add-to-list 'interpreter-mode-alist '("node" . js2-mode))
+    (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))))
+;; (add-to-list 'interpreter-mode-alist '("node" . js2-mode))
+
+(use-package json-mode
+  :ensure t
+  :config
+  (progn
+    (flycheck-add-mode 'json-jsonlint 'json-mode)
+    (add-hook 'json-mode-hook 'flycheck-mode)
+    (setq js-indent-level 2)
+    (add-to-list 'auto-mode-alist '("\\.json" . json-mode))))
+
+(use-package web-mode
+  :ensure t
+  :config
+  (progn
+    (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.js"     . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.html"   . web-mode))
+    ;; this magic incantation fixes highlighting of jsx syntax in .js files
+    (setq web-mode-content-types-alist
+          '(("jsx" . "\\.js[x]?\\'")))
+    (add-hook 'web-mode-hook
+              (lambda ()
+                (setq web-mode-code-indent-offset 2)
+                (when (string-equal "tsx" (file-name-extension buffer-file-name))
+                  (setup-tide-mode))
+                (when (string-equal "jsx" (file-name-extension buffer-file-name))
+                  (setup-tide-mode))
+                (when (string-equal "js" (file-name-extension buffer-file-name))
+                  (progn
+                    (setup-tide-mode)
+                    (with-eval-after-load 'flycheck
+                      (flycheck-add-mode 'typescript-tslint 'web-mode)
+                      (flycheck-add-mode 'javascript-tide 'web-mode))))))
+    ))
+    ;; enable typescript-tslint checker
 
 (use-package xcscope
   :defer t
